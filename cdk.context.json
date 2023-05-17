@@ -1,0 +1,4 @@
+{
+  "ssm:account=931955206531:parameterName=FooParameter:region=us-east-2": "Foo",
+  "ssm:account=931955206531:parameterName=/shl/sharebot/120:region=us-east-2": "gb187kg2ixcx29bl5no6.us-east-2.aoss.amazonaws.coma"
+}
