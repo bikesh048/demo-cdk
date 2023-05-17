@@ -4,7 +4,7 @@ import * as cdk from "aws-cdk-lib";
 import { DemoCdkStack } from "../lib/demo-cdk-stack";
 import { CdkStarterStack } from "../lib/cdk-starter-stack";
 import { Parameter } from "../lib/ssm-stack";
-import { CdkWorkshopStack } from "lib/cdk-workshop-stack";
+import { CdkWorkshopStack } from "../lib/cdk-workshop-stack";
 
 const app = new cdk.App();
 // new DemoCdkStack(app, 'DemoCdkStack', {
