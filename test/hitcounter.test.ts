@@ -4,6 +4,8 @@ import * as cdk from "aws-cdk-lib";
 import * as lambda from "aws-cdk-lib/aws-lambda";
 import { HitCounter } from "../lib/hitcounter";
 
+// assertion test
+
 test("DynamoDB Table Created", () => {
   const stack = new cdk.Stack();
   // WHEN
@@ -65,4 +67,22 @@ test("DynamoDB Table Created With Encryption", () => {
       SSEEnabled: true,
     },
   });
+});
+
+// validation test
+test("read capacity can be configured", () => {
+  const stack = new cdk.Stack();
+
+  expect(() => {
+    new HitCounter(stack, "MyTestConstruct", {
+      downstream: new lambda.Function(stack, "TestFunction", {
+        runtime: lambda.Runtime.NODEJS_14_X,
+        handler: "hello.handler",
+        code: lambda.Code.fromAsset(
+          path.join(__dirname, "../build/src/lambda")
+        ),
+      }),
+      readCapacity: 3,
+    });
+  }).toThrowError(/readCapacity must be greater than 5 and less than 20/);
 });
