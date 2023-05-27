@@ -5,6 +5,7 @@ import { DemoCdkStack } from "../lib/demo-cdk-stack";
 import { CdkStarterStack } from "../lib/cdk-starter-stack";
 import { Parameter } from "../lib/ssm-stack";
 import { CdkWorkshopStack } from "../lib/cdk-workshop-stack";
+import { EcrAsset } from "../lib/ecr";
 
 const app = new cdk.App();
 // new DemoCdkStack(app, 'DemoCdkStack', {
@@ -31,6 +32,10 @@ const app = new cdk.App();
 //   env: { account: process.env.CDK_DEFAULT_ACCOUNT, region: "us-east-2" },
 // });
 
-new CdkWorkshopStack(app, "HitCounterStack", {
+// new CdkWorkshopStack(app, "HitCounterStack", {
+//   env: { account: process.env.CDK_DEFAULT_ACCOUNT, region: "us-east-2" },
+// });
+
+new EcrAsset(app, "ecr", {
   env: { account: process.env.CDK_DEFAULT_ACCOUNT, region: "us-east-2" },
 });
